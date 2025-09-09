@@ -92,7 +92,7 @@ const teamData = [
         name: "Keshav Bansal",
         role: "Data Science Lead",
         image: "",
-        skills: ["Python", "R", "Tableau", "Big Data"],
+        skills: ["Python", "C#", "Unity", "Unreal Engine"],
         description: "Extracting insights from complex datasets to drive intelligent decision-making and innovation.",
         social: {
             github: "https://github.com/keshavbansal2025-byte",
@@ -104,7 +104,7 @@ const teamData = [
         name: "Kumkum Sharma",
         role: "UI/UX Designer",
         image: "",
-        skills: ["Figma", "Adobe XD", "Prototyping", "User Research"],
+        skills: ["Figma", "User Research"],
         description: "Crafting intuitive and beautiful user experiences that bridge the gap between technology and humanity.",
         social: {
             github: "#",
@@ -116,7 +116,7 @@ const teamData = [
         name: "Madhur Krishna Saurabh",
         role: "DevOps Engineer",
         image: "",
-        skills: ["Docker", "Kubernetes", "CI/CD", "Cloud"],
+        skills: ["C", "MATLAB", "Python"],
         description: "Ensuring seamless deployment and robust infrastructure for scalable and reliable applications.",
         social: {
             github: "#",
