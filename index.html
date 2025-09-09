@@ -36,13 +36,7 @@
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'glow': 'glow 2s ease-in-out infinite alternate',
-                        'typing': 'typing 3.5s steps(40, end)',
-                        'blink': 'blink-caret .75s step-end infinite',
                         'bounce-slow': 'bounce 3s infinite',
-                        'spin-slow': 'spin 8s linear infinite',
-                    },
-                    backdropBlur: {
-                        xs: '2px',
                     }
                 }
             }
@@ -83,12 +77,8 @@
         }
         
         .neon-border {
-            border: 2px solid transparent;
-            background: linear-gradient(45deg, #00D4FF, #8B5FFF) border-box;
-            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: subtract;
-            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            mask-composite: subtract;
+            border: 2px solid;
+            border-image: linear-gradient(45deg, #00D4FF, #8B5FFF) 1;
         }
         
         .hover-glow:hover {
@@ -103,13 +93,30 @@
             pointer-events: none;
             animation: float 4s ease-in-out infinite;
         }
+
+        /* Fix for form inputs */
+        input, textarea {
+            color: white !important;
+        }
+        
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        /* Ensure buttons are visible */
+        .btn-primary {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            visibility: visible !important;
+        }
     </style>
 </head>
 
 <body class="font-poppins bg-gradient-to-br from-deep-purple via-dark-blue to-black text-white overflow-x-hidden">
     
     <!-- Floating Particles Background -->
-    <div id="particles-container" class="fixed inset-0 z-0"></div>
+    <div id="particles-container" class="fixed inset-0 z-0 pointer-events-none"></div>
     
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 transition-all duration-300 glass-morphism" id="navbar">
@@ -125,27 +132,12 @@
                 </div>
                 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link relative group">
-                        <span class="relative z-10">Home</span>
-                        <span class="absolute inset-0 bg-gradient-to-r from-neon-blue to-electric-purple opacity-0 group-hover:opacity-20 rounded-lg transition-opacity"></span>
-                    </a>
-                    <a href="#mission" class="nav-link relative group">
-                        <span class="relative z-10">Mission</span>
-                        <span class="absolute inset-0 bg-gradient-to-r from-neon-blue to-electric-purple opacity-0 group-hover:opacity-20 rounded-lg transition-opacity"></span>
-                    </a>
-                    <a href="#innovation" class="nav-link relative group">
-                        <span class="relative z-10">Innovation</span>
-                        <span class="absolute inset-0 bg-gradient-to-r from-neon-blue to-electric-purple opacity-0 group-hover:opacity-20 rounded-lg transition-opacity"></span>
-                    </a>
-                    <a href="#technology" class="nav-link relative group">
-                        <span class="relative z-10">Technology</span>
-                        <span class="absolute inset-0 bg-gradient-to-r from-neon-blue to-electric-purple opacity-0 group-hover:opacity-20 rounded-lg transition-opacity"></span>
-                    </a>
-                    <a href="#team" class="nav-link relative group">
-                        <span class="relative z-10">Team</span>
-                        <span class="absolute inset-0 bg-gradient-to-r from-neon-blue to-electric-purple opacity-0 group-hover:opacity-20 rounded-lg transition-opacity"></span>
-                    </a>
-                    <a href="#contact" class="bg-gradient-to-r from-neon-blue to-electric-purple px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:shadow-neon-blue/50 transition-all duration-300 hover-glow">
+                    <a href="#home" class="nav-link hover:text-neon-blue transition-colors">Home</a>
+                    <a href="#mission" class="nav-link hover:text-neon-blue transition-colors">Mission</a>
+                    <a href="#innovation" class="nav-link hover:text-neon-blue transition-colors">Innovation</a>
+                    <a href="#technology" class="nav-link hover:text-neon-blue transition-colors">Technology</a>
+                    <a href="#team" class="nav-link hover:text-neon-blue transition-colors">Team</a>
+                    <a href="#contact" class="btn-primary bg-gradient-to-r from-neon-blue to-electric-purple px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:shadow-neon-blue/50 transition-all duration-300">
                         Connect
                     </a>
                 </div>
@@ -182,31 +174,31 @@
                     </span>
                 </div>
                 
-                <h1 class="text-6xl sm:text-7xl lg:text-8xl font-bold font-space mb-6 leading-tight">
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold font-space mb-6 leading-tight">
                     <span class="gradient-text">AVINYA</span>
                     <br>
-                    <span class="text-4xl sm:text-5xl lg:text-6xl font-light">Redefining Innovation</span>
+                    <span class="text-3xl sm:text-4xl lg:text-5xl font-light">Redefining Innovation</span>
                 </h1>
                 
-                <p class="text-xl sm:text-2xl lg:text-3xl mb-8 text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                <p class="text-lg sm:text-xl lg:text-2xl mb-8 text-gray-300 max-w-4xl mx-auto leading-relaxed">
                     Where <span class="text-neon-blue font-semibold">Artificial Intelligence</span> meets 
                     <span class="text-electric-purple font-semibold">Human Creativity</span> to solve tomorrow's challenges today
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-                    <button onclick="scrollToSection('#innovation')" class="group relative px-8 py-4 bg-gradient-to-r from-neon-blue to-electric-purple rounded-full font-semibold text-lg overflow-hidden hover-glow transition-all duration-300">
+                    <button onclick="scrollToSection('#innovation')" class="btn-primary group relative px-8 py-4 bg-gradient-to-r from-neon-blue to-electric-purple rounded-full font-semibold text-lg overflow-hidden hover-glow transition-all duration-300">
                         <span class="relative z-10">Explore Innovation</span>
                         <i class="fas fa-rocket ml-2 group-hover:translate-x-1 transition-transform"></i>
                     </button>
                     
-                    <button onclick="scrollToSection('#team')" class="px-8 py-4 glass-morphism rounded-full font-semibold text-lg hover:bg-white/10 transition-all duration-300 neon-border">
+                    <button onclick="scrollToSection('#team')" class="btn-primary px-8 py-4 glass-morphism rounded-full font-semibold text-lg hover:bg-white/10 transition-all duration-300">
                         Meet Our Team
                         <i class="fas fa-arrow-right ml-2"></i>
                     </button>
                 </div>
                 
                 <!-- Stats Counter -->
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
                     <div class="text-center glass-morphism p-6 rounded-2xl hover-glow transition-all duration-300">
                         <div class="text-3xl font-bold text-neon-blue counter" data-target="24">0</div>
                         <div class="text-sm text-gray-400">Hours Challenge</div>
@@ -220,7 +212,7 @@
                         <div class="text-sm text-gray-400">% Commitment</div>
                     </div>
                     <div class="text-center glass-morphism p-6 rounded-2xl hover-glow transition-all duration-300">
-                        <div class="text-3xl font-bold text-neon-blue counter" data-target="1">0</div>
+                        <div class="text-3xl font-bold text-neon-blue counter" data-target="0">0</div>
                         <div class="text-sm text-gray-400">Winning Solution</div>
                     </div>
                 </div>
@@ -239,7 +231,7 @@
     <section id="mission" class="py-32 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-5xl sm:text-6xl font-bold font-space gradient-text mb-6">Our Mission</h2>
+                <h2 class="text-4xl sm:text-5xl font-bold font-space gradient-text mb-6">Our Mission</h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                     Transforming complex challenges into elegant solutions through innovative technology and collaborative genius
                 </p>
@@ -286,7 +278,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div data-aos="fade-right">
-                    <h2 class="text-5xl font-bold font-space gradient-text mb-8">The Challenge</h2>
+                    <h2 class="text-4xl font-bold font-space gradient-text mb-8">The Challenge</h2>
                     <div class="space-y-6">
                         <div class="glass-morphism p-6 rounded-2xl border-l-4 border-neon-blue">
                             <h4 class="text-xl font-semibold mb-2 text-neon-blue">Problem Statement</h4>
@@ -307,7 +299,7 @@
                 </div>
                 
                 <div data-aos="fade-left">
-                    <h2 class="text-5xl font-bold font-space gradient-text mb-8">Our Solution</h2>
+                    <h2 class="text-4xl font-bold font-space gradient-text mb-8">Our Solution</h2>
                     <div class="glass-morphism p-8 rounded-3xl neon-border">
                         <h3 class="text-2xl font-bold mb-6">SmartCity Analytics Platform</h3>
                         
@@ -315,24 +307,24 @@
                             <div class="flex items-center justify-between">
                                 <span class="text-gray-300">AI Processing Power</span>
                                 <div class="w-32 bg-gray-700 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-neon-blue to-electric-purple h-2 rounded-full" style="width: 95%" data-aos="slide-right" data-aos-delay="500"></div>
+                                    <div class="bg-gradient-to-r from-neon-blue to-electric-purple h-2 rounded-full" style="width: 95%"></div>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-gray-300">Real-time Analytics</span>
                                 <div class="w-32 bg-gray-700 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-electric-purple to-cyber-green h-2 rounded-full" style="width: 90%" data-aos="slide-right" data-aos-delay="600"></div>
+                                    <div class="bg-gradient-to-r from-electric-purple to-cyber-green h-2 rounded-full" style="width: 90%"></div>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-gray-300">Scalability</span>
                                 <div class="w-32 bg-gray-700 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-cyber-green to-neon-blue h-2 rounded-full" style="width: 88%" data-aos="slide-right" data-aos-delay="700"></div>
+                                    <div class="bg-gradient-to-r from-cyber-green to-neon-blue h-2 rounded-full" style="width: 88%"></div>
                                 </div>
                             </div>
                         </div>
                         
-                        <button class="w-full bg-gradient-to-r from-neon-blue to-electric-purple py-4 rounded-2xl font-semibold hover-glow transition-all duration-300">
+                        <button class="btn-primary w-full bg-gradient-to-r from-neon-blue to-electric-purple py-4 rounded-2xl font-semibold hover-glow transition-all duration-300">
                             <i class="fas fa-play mr-2"></i>
                             View Live Demo
                         </button>
@@ -346,7 +338,7 @@
     <section id="technology" class="py-32">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-5xl font-bold font-space gradient-text mb-6">Technology Arsenal</h2>
+                <h2 class="text-4xl font-bold font-space gradient-text mb-6">Technology Arsenal</h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                     Powered by cutting-edge technologies and innovative frameworks
                 </p>
@@ -354,7 +346,7 @@
             
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="glass-morphism p-6 rounded-3xl text-center hover-glow transition-all duration-500 group" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center group-hover:animate-spin-slow">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center">
                         <i class="fab fa-react text-3xl text-white"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-2">Frontend</h3>
@@ -362,7 +354,7 @@
                 </div>
                 
                 <div class="glass-morphism p-6 rounded-3xl text-center hover-glow transition-all duration-500 group" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center group-hover:animate-spin-slow">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center">
                         <i class="fab fa-node-js text-3xl text-white"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-2">Backend</h3>
@@ -370,7 +362,7 @@
                 </div>
                 
                 <div class="glass-morphism p-6 rounded-3xl text-center hover-glow transition-all duration-500 group" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center group-hover:animate-spin-slow">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center">
                         <i class="fas fa-brain text-3xl text-white"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-2">AI/ML</h3>
@@ -378,7 +370,7 @@
                 </div>
                 
                 <div class="glass-morphism p-6 rounded-3xl text-center hover-glow transition-all duration-500 group" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center group-hover:animate-spin-slow">
+                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center">
                         <i class="fas fa-database text-3xl text-white"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-2">Database</h3>
@@ -394,7 +386,7 @@
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-5xl font-bold font-space gradient-text mb-6">Meet Team Avinya</h2>
+                <h2 class="text-4xl font-bold font-space gradient-text mb-6">Meet Team Avinya</h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                     Six innovative minds united by a passion for technology and a vision for the future
                 </p>
@@ -407,39 +399,39 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-32">
+    <section id="contact" class="py-32 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-5xl font-bold font-space gradient-text mb-6">Let's Connect</h2>
+                <h2 class="text-4xl font-bold font-space gradient-text mb-6">Let's Connect</h2>
                 <p class="text-xl text-gray-300">
                     Ready to innovate together? Let's build the future, one solution at a time.
                 </p>
             </div>
             
-            <div class="glass-morphism p-10 rounded-3xl neon-border" data-aos="zoom-in">
+            <div class="glass-morphism p-10 rounded-3xl neon-border relative z-10" data-aos="zoom-in">
                 <form id="contact-form" class="space-y-8">
                     <div class="grid md:grid-cols-2 gap-8">
                         <div>
                             <label class="block text-sm font-semibold text-gray-300 mb-3">Name</label>
-                            <input type="text" class="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-2xl focus:border-neon-blue focus:outline-none transition-all duration-300 text-white placeholder-gray-400" placeholder="Your Name" required>
+                            <input type="text" name="name" class="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-2xl focus:border-neon-blue focus:outline-none transition-all duration-300 text-white placeholder-gray-400" placeholder="Your Name" required>
                         </div>
                         <div>
                             <label class="block text-sm font-semibold text-gray-300 mb-3">Email</label>
-                            <input type="email" class="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-2xl focus:border-neon-blue focus:outline-none transition-all duration-300 text-white placeholder-gray-400" placeholder="your@email.com" required>
+                            <input type="email" name="email" class="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-2xl focus:border-neon-blue focus:outline-none transition-all duration-300 text-white placeholder-gray-400" placeholder="your@email.com" required>
                         </div>
                     </div>
                     
                     <div>
                         <label class="block text-sm font-semibold text-gray-300 mb-3">Subject</label>
-                        <input type="text" class="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-2xl focus:border-neon-blue focus:outline-none transition-all duration-300 text-white placeholder-gray-400" placeholder="Let's discuss..." required>
+                        <input type="text" name="subject" class="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-2xl focus:border-neon-blue focus:outline-none transition-all duration-300 text-white placeholder-gray-400" placeholder="Let's discuss..." required>
                     </div>
                     
                     <div>
                         <label class="block text-sm font-semibold text-gray-300 mb-3">Message</label>
-                        <textarea rows="6" class="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-2xl focus:border-neon-blue focus:outline-none transition-all duration-300 text-white placeholder-gray-400 resize-none" placeholder="Your message here..." required></textarea>
+                        <textarea rows="6" name="message" class="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-2xl focus:border-neon-blue focus:outline-none transition-all duration-300 text-white placeholder-gray-400 resize-none" placeholder="Your message here..." required></textarea>
                     </div>
                     
-                    <button type="submit" class="w-full bg-gradient-to-r from-neon-blue to-electric-purple py-4 rounded-2xl font-semibold text-lg hover-glow transition-all duration-300">
+                    <button type="submit" class="btn-primary w-full bg-gradient-to-r from-neon-blue to-electric-purple py-4 rounded-2xl font-semibold text-lg hover-glow transition-all duration-300">
                         <i class="fas fa-paper-plane mr-2"></i>
                         Send Message
                     </button>
