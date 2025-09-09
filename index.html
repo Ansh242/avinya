@@ -398,7 +398,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+<!-- Contact Section -->
 <section id="contact" class="py-32 relative">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16" data-aos="fade-up">
@@ -408,11 +408,8 @@
             </p>
         </div>
         
-        <div class="glass-morphism p-10 rounded-sm neon-border relative z-10" data-aos="zoom-in">
-            <!-- Netlify Form with reCAPTCHA -->
-            <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" id="contact-form" class="space-y-8">
-                <!-- Hidden input for Netlify -->
-                <input type="hidden" name="form-name" value="contact" />
+        <div class="glass-morphism p-10 rounded-3xl neon-border relative z-10" data-aos="zoom-in">
+            <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" class="space-y-8">
                 
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
@@ -455,7 +452,17 @@
                               required></textarea>
                 </div>
                 
-                <!-- Netlify reCAPTCHA -->
+                <!-- Organization/Company (optional) -->
+                <div>
+                    <label for="organization" class="block text-sm font-semibold text-gray-300 mb-3">Organization (Optional)</label>
+                    <input type="text" 
+                           id="organization" 
+                           name="organization" 
+                           class="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-2xl focus:border-neon-blue focus:outline-none transition-all duration-300 text-white placeholder-gray-400" 
+                           placeholder="Your company/organization">
+                </div>
+                
+                <!--reCAPTCHA -->
                 <div class="flex justify-center">
                     <div data-netlify-recaptcha="true"></div>
                 </div>
@@ -464,9 +471,6 @@
                     <i class="fas fa-paper-plane mr-2"></i>
                     Send Message
                 </button>
-                
-                <!-- Success/Error Messages -->
-                <div id="form-messages" class="hidden text-center"></div>
             </form>
         </div>
     </div>
@@ -525,5 +529,14 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+    <!-- Hidden form -->
+<form name="contact" netlify netlify-recaptcha hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="subject" />
+    <textarea name="message"></textarea>
+    <input type="text" name="organization" />
+</form>
+
 </body>
 </html>
