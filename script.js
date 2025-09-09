@@ -107,8 +107,8 @@ const teamData = [
         skills: ["Figma", "User Research"],
         description: "Crafting intuitive and beautiful user experiences that bridge the gap between technology and humanity.",
         social: {
-            github: "#",
-            linkedin: "#",
+            github: "https://github.com/kumpiler/",
+            linkedin: "https://www.linkedin.com/in/kumkum-sharma-802ab72b2/",
             twitter: "#"
         }
     },
@@ -128,10 +128,10 @@ const teamData = [
         name: "Utkarsh Patra",
         role: "Design Strategist",
         image: "",
-        skills: ["Strategy", "Analytics", "User Research", "Growth"],
+        skills: ["User Research","Graphic Designing", "UI", "UX","Figma"],
         description: "Bridging technology and business needs to create products that make a meaningful impact.",
         social: {
-            github: "#",
+            github: "https://github.com/basketcase1946/",
             linkedin: "#",
             twitter: "#"
         }
