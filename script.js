@@ -65,45 +65,45 @@ function animateCounters() {
 // Team data with modern profiles
 const teamData = [
     {
-        name: "Arjun Patel",
+        name: "Akshat Kumar",
         role: "AI/ML Architect",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+        image: "",
         skills: ["TensorFlow", "PyTorch", "Computer Vision", "NLP"],
         description: "Passionate about creating AI solutions that solve real-world problems and enhance human capabilities.",
         social: {
-            github: "#",
-            linkedin: "#",
+            github: "https://github.com/Akshat0021",
+            linkedin: "https://www.linkedin.com/in/akshatk21/",
             twitter: "#"
         }
     },
     {
-        name: "Priya Sharma",
+        name: "Ansh Katiyar",
         role: "Full-Stack Developer",
-        image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
-        skills: ["React", "Node.js", "MongoDB", "AWS"],
+        image: "",
+        skills: ["React", "Node.js","Tailwind CSS"],
         description: "Building scalable web applications with modern technologies and user-centric design principles.",
         social: {
-            github: "#",
-            linkedin: "#",
+            github: "https://github.com/Ansh242",
+            linkedin: "https://www.linkedin.com/in/ansh-katiyar-197b9537a/",
             twitter: "#"
         }
     },
     {
-        name: "Rahul Kumar",
+        name: "Keshav Bansal",
         role: "Data Science Lead",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+        image: "",
         skills: ["Python", "R", "Tableau", "Big Data"],
         description: "Extracting insights from complex datasets to drive intelligent decision-making and innovation.",
         social: {
-            github: "#",
-            linkedin: "#",
+            github: "https://github.com/keshavbansal2025-byte",
+            linkedin: "https://www.linkedin.com/in/keshav-bansal-57373837b/",
             twitter: "#"
         }
     },
     {
-        name: "Sneha Reddy",
+        name: "Kumkum Sharma",
         role: "UI/UX Designer",
-        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+        image: "",
         skills: ["Figma", "Adobe XD", "Prototyping", "User Research"],
         description: "Crafting intuitive and beautiful user experiences that bridge the gap between technology and humanity.",
         social: {
@@ -113,9 +113,9 @@ const teamData = [
         }
     },
     {
-        name: "Vikash Singh",
+        name: "Madhur Krishna Saurabh",
         role: "DevOps Engineer",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
+        image: "",
         skills: ["Docker", "Kubernetes", "CI/CD", "Cloud"],
         description: "Ensuring seamless deployment and robust infrastructure for scalable and reliable applications.",
         social: {
@@ -125,9 +125,9 @@ const teamData = [
         }
     },
     {
-        name: "Ananya Gupta",
-        role: "Product Strategist",
-        image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face",
+        name: "Utkarsh Patra",
+        role: "Design Strategist",
+        image: "",
         skills: ["Strategy", "Analytics", "User Research", "Growth"],
         description: "Bridging technology and business needs to create products that make a meaningful impact.",
         social: {
