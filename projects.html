@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avinya | SIH 2025 - Innovating Tomorrow</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Modern Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'space': ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        'neon-blue': '#00D4FF',
+                        'electric-purple': '#8B5FFF',
+                        'cyber-green': '#00FF94',
+                        'deep-purple': '#1A0B2E',
+                        'dark-blue': '#0F0B2E',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'bounce-slow': 'bounce 3s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 0 20px #00D4FF; }
+            to { box-shadow: 0 0 30px #8B5FFF, 0 0 40px #8B5FFF; }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #00D4FF, #8B5FFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cyber-grid {
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .neon-border {
+            border: 2px solid;
+            border-image: linear-gradient(45deg, #00D4FF, #8B5FFF) 1;
+        }
+        
+        .hover-glow:hover {
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+            transform: translateY(-5px);
+        }
+        
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.8) 0%, rgba(139, 95, 255, 0.4) 100%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Fix for form inputs */
+        input, textarea {
+            color: white !important;
+        }
+        
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        /* Ensure buttons are visible */
+        .btn-primary {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            visibility: visible !important;
+        }
+    </style>
+</head>
+
+<body class="font-poppins bg-gradient-to-br from-deep-purple via-dark-blue to-black text-white overflow-x-hidden">
+    
+    <!-- Floating Particles Background -->
+    <div id="particles-container" class="fixed inset-0 z-0 pointer-events-none"></div>
+
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 glass-morphism" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <div class="text-3xl font-bold font-space gradient-text">
+                        A<span class="text-neon-blue">V</span>INYA
+                    </div>
+                    <div class="ml-4 px-3 py-1 bg-gradient-to-r from-neon-blue to-electric-purple rounded-full text-sm font-semibold">
+                        PROJECTS
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/index.html" class="nav-link hover:text-neon-blue transition-colors">Home</a>
+                </div>
+                
+                <button id="mobile-menu-btn" class="md:hidden text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden glass-morphism border-t border-white/10 hidden">
+            <div class="px-4 py-6 space-y-4">
+                <a href="/index.html" class="block py-2 hover:text-neon-blue transition-colors">Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden cyber-grid">
+        <div class="absolute inset-0 bg-gradient-to-br from-transparent via-electric-purple/10 to-neon-blue/10"></div>
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+            <div class="w-6 h-10 border-2 border-neon-blue rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-neon-blue rounded-full mt-2 animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!--footer-->
+    <footer class="py-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <div class="text-3xl font-bold font-space gradient-text mb-4">AVINYA</div>
+                    <p class="text-gray-400 mb-6">
+                        Innovating for tomorrow, building solutions today. Team Avinya at Smart India Hackathon 2025.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-gradient-to-r from-neon-blue to-electric-purple rounded-full flex items-center justify-center hover-glow transition-all duration-300">
+                            <i class="fab fa-github text-white"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-gradient-to-r from-electric-purple to-cyber-green rounded-full flex items-center justify-center hover-glow transition-all duration-300">
+                            <i class="fab fa-linkedin text-white"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-gradient-to-r from-cyber-green to-neon-blue rounded-full flex items-center justify-center hover-glow transition-all duration-300">
+                            <i class="fab fa-twitter text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#mission" class="text-gray-400 hover:text-neon-blue transition-colors">Mission</a></li>
+                        <li><a href="#innovation" class="text-gray-400 hover:text-neon-blue transition-colors">Innovation</a></li>
+                        <li><a href="#technology" class="text-gray-400 hover:text-neon-blue transition-colors">Technology</a></li>
+                        <li><a href="#team" class="text-gray-400 hover:text-neon-blue transition-colors">Team</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Contact</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><i class="fas fa-envelope text-neon-blue mr-3"></i>team@avinya.tech</li>
+                        <li><i class="fas fa-phone text-electric-purple mr-3"></i>+91 98765 43210</li>
+                        <li><i class="fas fa-map-marker-alt text-cyber-green mr-3"></i>India</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 Team Avinya. Crafted with <span class="text-red-500">❤️</span> and <span class="text-neon-blue">Innovation</span> for SIH 2025.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <!-- Hidden form -->
+<form name="contact" netlify netlify-recaptcha hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="subject" />
+    <textarea name="message"></textarea>
+    <input type="text" name="organization" />
+</form>
+
+</body>
+</html>
