@@ -1,542 +1,196 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avinya | SIH 2025 - Innovating Tomorrow</title>
+    <title>Avinya | High Contrast Innovation</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Modern Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
-    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'poppins': ['Poppins', 'sans-serif'],
+                        'sans': ['Manrope', 'sans-serif'],
                         'space': ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
-                        'neon-blue': '#00D4FF',
-                        'electric-purple': '#8B5FFF',
-                        'cyber-green': '#00FF94',
-                        'deep-purple': '#1A0B2E',
-                        'dark-blue': '#0F0B2E',
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                        'bounce-slow': 'bounce 3s infinite',
+                        'bg-main': '#020410',   // Deepest Indigo
+                        'bg-card': '#0f1016',   // Dark Gray
+                        'accent-primary': '#F59E0B', // Amber 500
+                        'accent-secondary': '#6366f1', // Indigo 500
                     }
                 }
             }
         }
     </script>
-    
-    <!-- Custom Styles -->
+
     <style>
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+        body { background-color: #020410; color: white; overflow-x: hidden; }
+        
+        /* Grid Background Pattern */
+        .bg-grid {
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
         }
         
-        @keyframes glow {
-            from { box-shadow: 0 0 20px #00D4FF; }
-            to { box-shadow: 0 0 30px #8B5FFF, 0 0 40px #8B5FFF; }
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #00D4FF, #8B5FFF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .glass-morphism {
-            background: rgba(255, 255, 255, 0.08);
+        .glass-solid {
+            background: rgba(15, 16, 22, 0.95);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .cyber-grid {
-            background-image: 
-                linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-        
-        .neon-border {
-            border: 2px solid;
-            border-image: linear-gradient(45deg, #00D4FF, #8B5FFF) 1;
-        }
-        
-        .hover-glow:hover {
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
-            transform: translateY(-5px);
-        }
-        
-        .particle {
-            position: absolute;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.8) 0%, rgba(139, 95, 255, 0.4) 100%);
-            border-radius: 50%;
-            pointer-events: none;
-            animation: float 4s ease-in-out infinite;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Fix for form inputs */
-        input, textarea {
-            color: white !important;
+        .text-glow {
+            text-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
         }
         
-        input::placeholder, textarea::placeholder {
-            color: rgba(255, 255, 255, 0.6) !important;
-        }
-
-        /* Ensure buttons are visible */
         .btn-primary {
-            display: inline-flex !important;
-            align-items: center;
-            justify-content: center;
-            visibility: visible !important;
+            background: #F59E0B;
+            color: #000;
+            box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+            animation: pulse-amber 2s infinite;
+        }
+        
+        @keyframes pulse-amber {
+            0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
         }
     </style>
 </head>
 
-<body class="font-poppins bg-gradient-to-br from-deep-purple via-dark-blue to-black text-white overflow-x-hidden">
-    
-    <!-- Floating Particles Background -->
+<body class="antialiased selection:bg-accent-primary selection:text-black">
+
+    <div class="fixed inset-0 z-0 bg-grid pointer-events-none"></div>
     <div id="particles-container" class="fixed inset-0 z-0 pointer-events-none"></div>
-    
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 transition-all duration-300 glass-morphism" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center">
-                    <div class="text-3xl font-bold font-space gradient-text">
-                        A<span class="text-neon-blue">V</span>INYA
-                    </div>
-                    <div class="ml-4 px-3 py-1 bg-gradient-to-r from-neon-blue to-electric-purple rounded-full text-xs font-semibold">
-                        SIH 2025
-                    </div>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link hover:text-neon-blue transition-colors">Home</a>
-                    <a href="#mission" class="nav-link hover:text-neon-blue transition-colors">Mission</a>
-                    <a href="#innovation" class="nav-link hover:text-neon-blue transition-colors">Innovation</a>
-                    <a href="#technology" class="nav-link hover:text-neon-blue transition-colors">Technology</a>
-                    <a href="#team" class="nav-link hover:text-neon-blue transition-colors">Team</a>
-                    <a href="#contact" class="btn-primary bg-gradient-to-r from-neon-blue to-electric-purple px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:shadow-neon-blue/50 transition-all duration-300">
-                        Connect
-                    </a>
-                </div>
-                
-                <button id="mobile-menu-btn" class="md:hidden text-2xl">
-                    <i class="fas fa-bars"></i>
-                </button>
+
+    <nav class="fixed top-0 w-full z-50 glass-solid">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="text-2xl font-bold font-space tracking-tighter">
+                AVINYA<span class="text-accent-primary">.</span>
             </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden glass-morphism border-t border-white/10 hidden">
-            <div class="px-4 py-6 space-y-4">
-                <a href="#home" class="block py-2 hover:text-neon-blue transition-colors">Home</a>
-                <a href="#mission" class="block py-2 hover:text-neon-blue transition-colors">Mission</a>
-                <a href="#innovation" class="block py-2 hover:text-neon-blue transition-colors">Innovation</a>
-                <a href="#technology" class="block py-2 hover:text-neon-blue transition-colors">Technology</a>
-                <a href="#team" class="block py-2 hover:text-neon-blue transition-colors">Team</a>
-                <a href="#contact" class="block py-2 hover:text-neon-blue transition-colors">Connect</a>
+            
+            <div class="hidden md:flex items-center space-x-8 text-sm font-bold uppercase tracking-wide text-gray-400">
+                <a href="#home" class="hover:text-white transition-colors">Home</a>
+                <a href="#impact" class="hover:text-white transition-colors">Mission</a>
+                <a href="projects.html" class="hover:text-white transition-colors">Work</a>
+                <a href="#team" class="hover:text-white transition-colors">Team</a>
             </div>
+
+            <a href="#contact" class="hidden md:block px-6 py-2 text-sm font-bold text-black bg-white hover:bg-gray-200 transition-colors">
+                CONTACT US
+            </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden cyber-grid">
-        <div class="absolute inset-0 bg-gradient-to-br from-transparent via-electric-purple/10 to-neon-blue/10"></div>
-        
-        <!-- Hero Content -->
-        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-            <div data-aos="fade-up" data-aos-duration="1000">
-                <div class="mb-2">
-                    <span class="inline-block px-4 py-2 bg-gradient-to-r from-neon-blue/20 to-electric-purple/20 rounded-full text-sm font-semibold mb-4 glass-morphism">
-                        🚀 Smart India Hackathon 2025
-                    </span>
-                </div>
-                
-                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold font-space mb-6 leading-tight">
-                    <span class="gradient-text">AVINYA</span>
-                    <br>
-                    <span class="text-3xl sm:text-4xl lg:text-5xl font-light">Redefining Innovation</span>
-                </h1>
-                
-                <p class="text-lg sm:text-xl lg:text-2xl mb-8 text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                    Where <span class="text-neon-blue font-semibold">Artificial Intelligence</span> meets 
-                    <span class="text-electric-purple font-semibold">Human Creativity</span> to solve tomorrow's challenges today
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-                    <button onclick="scrollToSection('#innovation')" class="btn-primary group relative px-8 py-4 bg-gradient-to-r from-neon-blue to-electric-purple rounded-full font-semibold text-lg overflow-hidden hover-glow transition-all duration-300">
-                        <span class="relative z-10">Explore Innovation</span>
-                        <i class="fas fa-rocket ml-2 group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-                    
-                    <button onclick="scrollToSection('#team')" class="btn-primary px-8 py-4 glass-morphism rounded-full font-semibold text-lg hover:bg-white/10 transition-all duration-300">
-                        Meet Our Team
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </button>
-                </div>
-                
-                <!-- Stats Counter -->
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
-                    <div class="text-center glass-morphism p-6 rounded-2xl hover-glow transition-all duration-300">
-                        <div class="text-3xl font-bold text-neon-blue counter" data-target="24">0</div>
-                        <div class="text-sm text-gray-400">Hours Challenge</div>
-                    </div>
-                    <div class="text-center glass-morphism p-6 rounded-2xl hover-glow transition-all duration-300">
-                        <div class="text-3xl font-bold text-electric-purple counter" data-target="6">0</div>
-                        <div class="text-sm text-gray-400">Team Members</div>
-                    </div>
-                    <div class="text-center glass-morphism p-6 rounded-2xl hover-glow transition-all duration-300">
-                        <div class="text-3xl font-bold text-cyber-green counter" data-target="100">0</div>
-                        <div class="text-sm text-gray-400">% Commitment</div>
-                    </div>
-                    <div class="text-center glass-morphism p-6 rounded-2xl hover-glow transition-all duration-300">
-                        <div class="text-3xl font-bold text-neon-blue counter" data-target="0">0</div>
-                        <div class="text-sm text-gray-400">Winning Solution</div>
-                    </div>
-                </div>
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20">
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <div data-aos="fade-down" class="inline-flex items-center gap-3 px-4 py-2 border border-accent-primary/30 bg-accent-primary/10 mb-8">
+                <span class="flex h-2 w-2 relative">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-primary opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-primary"></span>
+                </span>
+                <span class="text-xs font-bold tracking-widest text-accent-primary uppercase">SIH 2025 Finalists</span>
             </div>
-        </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
-            <div class="w-6 h-10 border-2 border-neon-blue rounded-full flex justify-center">
-                <div class="w-1 h-3 bg-neon-blue rounded-full mt-2 animate-bounce"></div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Mission Section -->
-    <section id="mission" class="py-32 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-4xl sm:text-5xl font-bold font-space gradient-text mb-6">Our Mission</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Transforming complex challenges into elegant solutions through innovative technology and collaborative genius
-                </p>
-            </div>
-            
-            <div class="grid lg:grid-cols-3 gap-8">
-                <div class="glass-morphism p-8 rounded-3xl hover-glow transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 bg-gradient-to-br from-neon-blue to-electric-purple rounded-2xl flex items-center justify-center mb-6 animate-float">
-                        <i class="fas fa-brain text-2xl text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">AI-Driven Innovation</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        Leveraging cutting-edge artificial intelligence to create solutions that adapt, learn, and evolve with real-world challenges.
-                    </p>
-                </div>
-                
-                <div class="glass-morphism p-8 rounded-3xl hover-glow transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-gradient-to-br from-electric-purple to-cyber-green rounded-2xl flex items-center justify-center mb-6 animate-float" style="animation-delay: -2s;">
-                        <i class="fas fa-users text-2xl text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Collaborative Excellence</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        Bringing together diverse perspectives and expertise to create comprehensive solutions that make a lasting impact.
-                    </p>
-                </div>
-                
-                <div class="glass-morphism p-8 rounded-3xl hover-glow transition-all duration-500" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 bg-gradient-to-br from-cyber-green to-neon-blue rounded-2xl flex items-center justify-center mb-6 animate-float" style="animation-delay: -4s;">
-                        <i class="fas fa-globe text-2xl text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Global Impact</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        Building scalable solutions that address real-world problems and create positive change across communities worldwide.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <h1 class="text-6xl md:text-8xl font-bold font-space mb-8 leading-none tracking-tight text-white" data-aos="fade-up" data-aos-delay="100">
+                INNOVATE <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-yellow-200 text-glow">WITHOUT LIMITS</span>
+            </h1>
 
-    <!-- Innovation Showcase -->
-    <section id="innovation" class="py-32 relative overflow-hidden">
-        <div class="absolute inset-0 cyber-grid opacity-30"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div data-aos="fade-right">
-                    <h2 class="text-4xl font-bold font-space gradient-text mb-8">The Challenge</h2>
-                    <div class="space-y-6">
-                        <div class="glass-morphism p-6 rounded-2xl border-l-4 border-neon-blue">
-                            <h4 class="text-xl font-semibold mb-2 text-neon-blue">Problem Statement</h4>
-                            <p class="text-gray-300">
-                                Developing an intelligent system that can analyze, predict, and optimize resource allocation in smart cities using IoT sensors and machine learning algorithms.
-                            </p>
-                        </div>
-                        
-                        <div class="glass-morphism p-6 rounded-2xl border-l-4 border-electric-purple">
-                            <h4 class="text-xl font-semibold mb-2 text-electric-purple">Key Challenges</h4>
-                            <ul class="text-gray-300 space-y-2">
-                                <li class="flex items-center"><i class="fas fa-check-circle text-cyber-green mr-3"></i>Real-time data processing at scale</li>
-                                <li class="flex items-center"><i class="fas fa-check-circle text-cyber-green mr-3"></i>Privacy-preserving analytics</li>
-                                <li class="flex items-center"><i class="fas fa-check-circle text-cyber-green mr-3"></i>Cross-platform integration</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div data-aos="fade-left">
-                    <h2 class="text-4xl font-bold font-space gradient-text mb-8">Our Solution</h2>
-                    <div class="glass-morphism p-8 rounded-3xl neon-border">
-                        <h3 class="text-2xl font-bold mb-6">SmartCity Analytics Platform</h3>
-                        
-                        <div class="space-y-4 mb-8">
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-300">AI Processing Power</span>
-                                <div class="w-32 bg-gray-700 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-neon-blue to-electric-purple h-2 rounded-full" style="width: 95%"></div>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-300">Real-time Analytics</span>
-                                <div class="w-32 bg-gray-700 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-electric-purple to-cyber-green h-2 rounded-full" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-gray-300">Scalability</span>
-                                <div class="w-32 bg-gray-700 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-cyber-green to-neon-blue h-2 rounded-full" style="width: 88%"></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <button class="btn-primary w-full bg-gradient-to-r from-neon-blue to-electric-purple py-4 rounded-2xl font-semibold hover-glow transition-all duration-300">
-                            <i class="fas fa-play mr-2"></i>
-                            View Live Demo
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technology Stack -->
-    <section id="technology" class="py-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-4xl font-bold font-space gradient-text mb-6">Technology Arsenal</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Powered by cutting-edge technologies and innovative frameworks
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="glass-morphism p-6 rounded-3xl text-center hover-glow transition-all duration-500 group" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center">
-                        <i class="fab fa-react text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Frontend</h3>
-                    <p class="text-gray-400 text-sm">React.js, Next.js, Tailwind CSS</p>
-                </div>
-                
-                <div class="glass-morphism p-6 rounded-3xl text-center hover-glow transition-all duration-500 group" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center">
-                        <i class="fab fa-node-js text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Backend</h3>
-                    <p class="text-gray-400 text-sm">Node.js, Express, FastAPI</p>
-                </div>
-                
-                <div class="glass-morphism p-6 rounded-3xl text-center hover-glow transition-all duration-500 group" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center">
-                        <i class="fas fa-brain text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">AI/ML</h3>
-                    <p class="text-gray-400 text-sm">TensorFlow, PyTorch, OpenAI</p>
-                </div>
-                
-                <div class="glass-morphism p-6 rounded-3xl text-center hover-glow transition-all duration-500 group" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center">
-                        <i class="fas fa-database text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Database</h3>
-                    <p class="text-gray-400 text-sm">MongoDB, PostgreSQL, Redis</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="py-32 relative overflow-hidden">
-        <div class="absolute inset-0 cyber-grid opacity-20"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-4xl font-bold font-space gradient-text mb-6">Meet Team Avinya</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Six innovative minds united by a passion for technology and a vision for the future
-                </p>
-            </div>
-            
-            <div id="team-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Team members will be populated by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-<!-- Contact Section -->
-<section id="contact" class="py-32 relative">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-4xl font-bold font-space gradient-text mb-6">Let's Connect</h2>
-            <p class="text-xl text-gray-300">
-                Ready to innovate together? Let's build the future, one solution at a time.
+            <p class="text-xl md:text-2xl text-gray-400 mb-10 max-w-3xl mx-auto font-light" data-aos="fade-up" data-aos-delay="200">
+                We combine <span class="text-white font-bold">Edge AI</span> with robust engineering to solve critical urban challenges.
             </p>
+
+            <div class="flex flex-col sm:flex-row gap-5 justify-center items-center" data-aos="fade-up" data-aos-delay="300">
+                <a href="projects.html" class="btn-primary px-8 py-4 font-bold tracking-wider uppercase hover:scale-105 transition-transform flex items-center gap-2">
+                    Our Projects <i class="fas fa-arrow-right"></i>
+                </a>
+                
+                <a href="#impact" class="px-8 py-4 border border-white/20 hover:bg-white hover:text-black font-bold tracking-wider uppercase transition-all">
+                    View Mission
+                </a>
+            </div>
         </div>
-        
-        <div class="glass-morphism p-10 rounded-3xl neon-border relative z-10" data-aos="zoom-in">
-            <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" class="space-y-8">
-                
-                <div class="grid md:grid-cols-2 gap-8">
+    </section>
+
+    <section id="impact" class="py-32 border-t border-white/5 relative z-10 bg-[#020410]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="md:col-span-2 row-span-2 contrast-card bg-bg-card border border-white/10 p-10 flex flex-col justify-between group" data-aos="fade-right">
                     <div>
-                        <label for="name" class="block text-sm font-semibold text-gray-300 mb-3">Name *</label>
-                        <input type="text" 
-                               id="name" 
-                               name="name" 
-                               class="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-2xl focus:border-neon-blue focus:outline-none transition-all duration-300 text-white placeholder-gray-400" 
-                               placeholder="Your Name" 
-                               required>
+                        <div class="w-12 h-12 bg-accent-primary flex items-center justify-center mb-6">
+                            <i class="fas fa-microchip text-black text-xl"></i>
+                        </div>
+                        <h2 class="text-4xl font-bold font-space mb-4 text-white">Engineered for Impact</h2>
+                        <p class="text-gray-400 text-lg leading-relaxed max-w-lg">
+                            Our solutions aren't just concepts. They are rigorous, scalable systems built on the principles of efficiency and high-availability.
+                        </p>
                     </div>
-                    <div>
-                        <label for="email" class="block text-sm font-semibold text-gray-300 mb-3">Email *</label>
-                        <input type="email" 
-                               id="email" 
-                               name="email" 
-                               class="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-2xl focus:border-neon-blue focus:outline-none transition-all duration-300 text-white placeholder-gray-400" 
-                               placeholder="your@email.com" 
-                               required>
+                    <div class="mt-8">
+                        <div class="text-4xl font-bold text-accent-primary mb-1">98.5%</div>
+                        <div class="text-sm font-bold uppercase tracking-widest text-gray-500">System Uptime</div>
                     </div>
                 </div>
-                
-                <div>
-                    <label for="subject" class="block text-sm font-semibold text-gray-300 mb-3">Subject *</label>
-                    <input type="text" 
-                           id="subject" 
-                           name="subject" 
-                           class="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-2xl focus:border-neon-blue focus:outline-none transition-all duration-300 text-white placeholder-gray-400" 
-                           placeholder="Let's discuss..." 
-                           required>
+
+                <div class="contrast-card bg-bg-card border border-white/10 p-8 flex flex-col items-center justify-center text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-6xl font-bold font-space text-white mb-2 counter" data-target="24">0</div>
+                    <div class="text-xs font-bold uppercase tracking-widest text-accent-primary">Hours Hackathon</div>
                 </div>
-                
-                <div>
-                    <label for="message" class="block text-sm font-semibold text-gray-300 mb-3">Message *</label>
-                    <textarea rows="6" 
-                              id="message" 
-                              name="message" 
-                              class="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-2xl focus:border-neon-blue focus:outline-none transition-all duration-300 text-white placeholder-gray-400 resize-none" 
-                              placeholder="Your message here..." 
-                              required></textarea>
+
+                <div class="contrast-card bg-bg-card border border-white/10 p-8 flex flex-col items-center justify-center text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-6xl font-bold font-space text-white mb-2 counter" data-target="100">0</div>
+                    <div class="text-xs font-bold uppercase tracking-widest text-accent-secondary">Commitment</div>
                 </div>
-                
-                <!-- Organization/Company (optional) -->
-                <div>
-                    <label for="organization" class="block text-sm font-semibold text-gray-300 mb-3">Organization (Optional)</label>
-                    <input type="text" 
-                           id="organization" 
-                           name="organization" 
-                           class="w-full px-6 py-4 bg-white/5 border border-white/20 rounded-2xl focus:border-neon-blue focus:outline-none transition-all duration-300 text-white placeholder-gray-400" 
-                           placeholder="Your company/organization">
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="py-32 border-t border-white/5 bg-[#020410]">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold font-space mb-12 flex items-center gap-4 text-white">
+                <span class="w-2 h-12 bg-accent-primary block"></span> THE TEAM
+            </h2>
+            <div id="team-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 </div>
-                
-                <!--reCAPTCHA -->
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 border-t border-white/5 bg-bg-card">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold font-space text-white mb-4">INITIATE CONTACT</h2>
+                <p class="text-gray-400">Ready to deploy? Send us your coordinates.</p>
+            </div>
+            
+            <form class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <input type="text" class="w-full bg-[#020410] border border-white/10 p-4 text-white focus:outline-none focus:border-accent-primary transition-colors font-mono" placeholder="NAME">
+                    <input type="email" class="w-full bg-[#020410] border border-white/10 p-4 text-white focus:outline-none focus:border-accent-primary transition-colors font-mono" placeholder="EMAIL">
+                </div>
+                <textarea rows="4" class="w-full bg-[#020410] border border-white/10 p-4 text-white focus:outline-none focus:border-accent-primary transition-colors font-mono" placeholder="MESSAGE PARAMETERS..."></textarea>
+                                <!--reCAPTCHA -->
                 <div class="flex justify-center">
                     <div data-netlify-recaptcha="true"></div>
                 </div>
                 
-                <button type="submit" class="btn-primary w-full bg-gradient-to-r from-neon-blue to-electric-purple py-4 rounded-2xl font-semibold text-lg hover-glow transition-all duration-300">
-                    <i class="fas fa-paper-plane mr-2"></i>
-                    Send Message
+                <button class="w-full py-5 bg-white text-black font-bold uppercase tracking-widest hover:bg-accent-primary hover:text-black transition-colors">
+                    TRANSMIT MESSAGE
                 </button>
             </form>
         </div>
-    </div>
-</section>
+    </section>
 
-    <!-- Footer -->
-    <footer class="py-16 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-12">
-                <div>
-                    <div class="text-3xl font-bold font-space gradient-text mb-4">AVINYA</div>
-                    <p class="text-gray-400 mb-6">
-                        Innovating for tomorrow, building solutions today. Team Avinya at Smart India Hackathon 2025.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-12 h-12 bg-gradient-to-r from-neon-blue to-electric-purple rounded-full flex items-center justify-center hover-glow transition-all duration-300">
-                            <i class="fab fa-github text-white"></i>
-                        </a>
-                        <a href="#" class="w-12 h-12 bg-gradient-to-r from-electric-purple to-cyber-green rounded-full flex items-center justify-center hover-glow transition-all duration-300">
-                            <i class="fab fa-linkedin text-white"></i>
-                        </a>
-                        <a href="#" class="w-12 h-12 bg-gradient-to-r from-cyber-green to-neon-blue rounded-full flex items-center justify-center hover-glow transition-all duration-300">
-                            <i class="fab fa-twitter text-white"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#mission" class="text-gray-400 hover:text-neon-blue transition-colors">Mission</a></li>
-                        <li><a href="#innovation" class="text-gray-400 hover:text-neon-blue transition-colors">Innovation</a></li>
-                        <li><a href="#technology" class="text-gray-400 hover:text-neon-blue transition-colors">Technology</a></li>
-                        <li><a href="#team" class="text-gray-400 hover:text-neon-blue transition-colors">Team</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-xl font-bold mb-6">Contact</h3>
-                    <ul class="space-y-3 text-gray-400">
-                        <li><i class="fas fa-envelope text-neon-blue mr-3"></i>team@avinya.tech</li>
-                        <li><i class="fas fa-phone text-electric-purple mr-3"></i>+91 98765 43210</li>
-                        <li><i class="fas fa-map-marker-alt text-cyber-green mr-3"></i>India</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-white/10 mt-12 pt-8 text-center">
-                <p class="text-gray-400">
-                    © 2025 Team Avinya. Crafted with <span class="text-red-500">❤️</span> and <span class="text-neon-blue">Innovation</span> for SIH 2025.
-                </p>
-            </div>
-        </div>
+    <footer class="py-12 border-t border-white/5 bg-[#020410] text-center">
+        <p class="text-gray-600 text-sm font-bold uppercase tracking-widest">© 2025 TEAM AVINYA. SYSTEM ONLINE.</p>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
-    <!-- Hidden form -->
-<form name="contact" netlify netlify-recaptcha hidden>
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <input type="text" name="subject" />
-    <textarea name="message"></textarea>
-    <input type="text" name="organization" />
-</form>
-
 </body>
 </html>
